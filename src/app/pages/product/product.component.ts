@@ -21,7 +21,6 @@ import { ModalComponent } from '../../components/modal/modal.component';
   imports: [
     ProductFormComponent,
     ProductListComponent,
-    PaginationComponent,
     ModalComponent
   ]
 })

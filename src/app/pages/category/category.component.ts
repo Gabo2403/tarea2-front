@@ -18,7 +18,6 @@ import { ModalComponent } from '../../components/modal/modal.component';
   imports: [
     CategoryFormComponent,
     CategoryListComponent,
-    PaginationComponent,
     ModalComponent
   ]
 })

@@ -3,9 +3,9 @@
     <div class="product-item">
       <h2>{{ product.nombre }}</h2>
       <p><strong>Descripción:</strong> {{ product.descripcion }}</p>
-      <p><strong>Precio:</strong> ₡{{ product.precio }}</p>
+      <p><strong>Precio:</strong> {{ product.precio }}</p>
       <p><strong>Stock:</strong> {{ product.cantidadEnStock }}</p>
-      <p><strong>Categoría:</strong> {{ product.categoria.nombre }}</p>
+      <p><strong>Categoría:</strong> {{ product.categoria?.nombre }}</p>
 
       @if (areActionsAvailable) {
         <button (click)="callUpdateModalMethod.emit(product)" class="btn btn-success">Editar</button>
