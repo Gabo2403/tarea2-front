@@ -62,18 +62,18 @@ export interface ISearch {
 
 export interface ICategory {
   id?: number;
-  nombre: string;
-  descripcion: string;
+  name: string;
+  description: string;
 }
 
 export interface IProduct {
   id?: number;
-  nombre: string;
-  descripcion: string;
-  precio: number;
-  cantidadEnStock: number; 
-  categoria: {
+  name: string;
+  description: string;
+  price: number;
+  stockQuantity: number; 
+  category: {
     id: number;
-    nombre?: string;
+    name?: string;
   };
 }

@@ -22,7 +22,7 @@ export class ProductService extends BaseService<IProduct> {
   public totalItems: any = [];
   private alertService: AlertService = inject(AlertService);
 
-  listarTodos() {
+  getAll() {
     this.findAllWithParams({ page: this.search.page, size: this.search.size }).subscribe({
       next: (response: IResponse<IProduct[]>) => {
         this.search = { ...this.search, ...response.meta };
@@ -39,7 +39,7 @@ export class ProductService extends BaseService<IProduct> {
     this.add(item).subscribe({
       next: (response: IResponse<IProduct>) => {
         this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);
-        this.listarTodos();
+        this.getAll();
       },
       error: (err: any) => {
         this.alertService.displayAlert('error', 'Error al agregar producto', 'center', 'top', ['error-snackbar']);
@@ -52,7 +52,7 @@ export class ProductService extends BaseService<IProduct> {
     this.edit(item.id, item).subscribe({
       next: (response: IResponse<IProduct>) => {
         this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);
-        this.listarTodos();
+        this.getAll();
       },
       error: (err: any) => {
         this.alertService.displayAlert('error', 'Error al actualizar producto', 'center', 'top', ['error-snackbar']);
@@ -65,7 +65,7 @@ export class ProductService extends BaseService<IProduct> {
     this.del(item.id).subscribe({
       next: (response: IResponse<IProduct>) => {
         this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);
-        this.listarTodos();
+        this.getAll();
       },
       error: (err: any) => {
         this.alertService.displayAlert('error', 'Error al eliminar producto', 'center', 'top', ['error-snackbar']);

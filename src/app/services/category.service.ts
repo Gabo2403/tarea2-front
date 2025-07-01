@@ -21,7 +21,7 @@ export class CategoryService extends BaseService<ICategory> {
   public totalItems: any = [];
   private alertService: AlertService = inject(AlertService);
 
-  listar() {
+  getAll() {
     this.findAllWithParams({ page: this.search.page, size: this.search.size }).subscribe({
       next: (response: IResponse<ICategory[]>) => {
         this.search = { ...this.search, ...response.meta };
@@ -38,7 +38,7 @@ export class CategoryService extends BaseService<ICategory> {
     this.add(item).subscribe({
       next: (response: IResponse<ICategory>) => {
         this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);
-        this.listar();
+        this.getAll();
       },
       error: (err: any) => {
         this.alertService.displayAlert('error', 'Error al agregar categoría', 'center', 'top', ['error-snackbar']);
@@ -51,7 +51,7 @@ export class CategoryService extends BaseService<ICategory> {
     this.edit(item.id, item).subscribe({
       next: (response: IResponse<ICategory>) => {
         this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);
-        this.listar();
+        this.getAll();
       },
       error: (err: any) => {
         this.alertService.displayAlert('error', 'Error al actualizar categoría', 'center', 'top', ['error-snackbar']);
@@ -64,7 +64,7 @@ export class CategoryService extends BaseService<ICategory> {
     this.del(item.id).subscribe({
       next: (response: IResponse<ICategory>) => {
         this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);
-        this.listar();
+        this.getAll();
       },
       error: (err: any) => {
         this.alertService.displayAlert('error', 'Error al eliminar categoría', 'center', 'top', ['error-snackbar']);

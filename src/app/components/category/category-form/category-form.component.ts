@@ -22,8 +22,8 @@ export class CategoryFormComponent {
 
   callSave() {
     const category: ICategory = {
-      nombre: this.form.controls['nombre'].value,
-      descripcion: this.form.controls['description'].value,
+      name: this.form.controls['name'].value,
+      description: this.form.controls['description'].value,
     };
 
     if (this.form.controls['id'].value) {

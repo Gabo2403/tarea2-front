@@ -42,7 +42,7 @@ export class CategoryComponent {
     this.route.data.subscribe(data => {
       this.areActionsAvailable = this.authService.areActionsAvailable(data['authorities'] || []);
     });
-    this.categoryService.listar();
+    this.categoryService.getAll();
   }
 
   saveCategory(item: ICategory) {
@@ -62,8 +62,8 @@ export class CategoryComponent {
   openEditCategoryModal(category: ICategory) {
     this.categoryForm.patchValue({
       id: category.id?.toString() || '',
-      name: category.nombre,
-      description: category.descripcion
+      name: category.name,
+      description: category.description
     });
     this.modalService.displayModal('lg', this.editCategoryModal);
   }

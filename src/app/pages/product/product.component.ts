@@ -61,8 +61,8 @@ export class ProductComponent {
       this.areActionsAvailable = this.authService.areActionsAvailable(data['authorities'] || []);
     });
 
-    this.productService.listarTodos();
-    this.categoryService.listar();
+    this.productService.getAll();
+    this.categoryService.getAll();
     this.categoryList = this.categoryService.categories$();
   }
 
@@ -83,11 +83,11 @@ export class ProductComponent {
   openEditProductModal(product: IProduct) {
     this.productForm.patchValue({
       id: String(product.id),
-      name: product.nombre,
-      description: product.descripcion,
-      price: product.precio,
-      stockQuantity: product.cantidadEnStock,
-      categoryId: product.categoria?.id ?? null
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      stockQuantity: product.stockQuantity,
+      categoryId: product.category?.id ?? null
     });
 
     this.modalService.displayModal('lg', this.editProductModal);

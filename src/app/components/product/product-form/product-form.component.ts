@@ -23,11 +23,11 @@ export class ProductFormComponent {
 
   callSave() {
     const product: IProduct = {
-      nombre: this.form.controls['name'].value,
-      descripcion: this.form.controls['description'].value,
-      precio: this.form.controls['price'].value,
-      cantidadEnStock: this.form.controls['stockQuantity'].value,
-      categoria: {
+      name: this.form.controls['name'].value,
+      description: this.form.controls['description'].value,
+      price: this.form.controls['price'].value,
+      stockQuantity: this.form.controls['stockQuantity'].value,
+      category: {
         id: this.form.controls['categoryId'].value
       }
     };
